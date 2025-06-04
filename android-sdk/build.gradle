@@ -1,0 +1,92 @@
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
+
+android {
+    namespace 'com.objectdetection.sdk'
+    compileSdkVersion 35
+
+    defaultConfig {
+        minSdkVersion 26
+        targetSdkVersion 33
+        versionCode 1
+        versionName "0.1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+}
+
+dependencies {
+    implementation libs.appcompat
+    implementation libs.annotation.v160
+
+    // OkHttp for network requests
+    implementation libs.okhttp.v4100
+
+    // Gson for JSON parsing
+    implementation libs.gson.v2101
+
+    // Lifecycle components
+    implementation libs.lifecycle.runtime.v261
+
+    // Testing
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    // CameraX dependencies
+    def camerax_version = "1.4.2"
+    implementation libs.camera.core
+    implementation libs.camera.camera2
+    implementation libs.camera.lifecycle
+    implementation libs.camera.view
+
+    implementation libs.camera.extensions
+
+    // For handling permissions
+    implementation libs.activity.v161
+
+    //Retrofit
+    implementation libs.retrofit
+    implementation libs.converter.gson
+}
+
+
+// A section for JitPack publishing
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.EliorMauda'
+                artifactId = 'android-object-detection-sdk'
+                version = '0.1.0'
+            }
+        }
+    }
+}

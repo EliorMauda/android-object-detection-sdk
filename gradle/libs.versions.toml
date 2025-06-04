@@ -2,6 +2,7 @@
 activity = "1.10.1"
 activityVersion = "1.9.3"
 agp = "8.10.0"
+androidObjectDetectionSdk = "Tag"
 androidxJunit = "1.1.5"
 annotation = "1.9.1"
 annotationVersion = "1.6.0"
@@ -24,6 +25,7 @@ retrofit = "2.9.0"
 [libraries]
 activity = { module = "androidx.activity:activity", version.ref = "activity" }
 activity-v161 = { module = "androidx.activity:activity", version.ref = "activityVersion" }
+android-object1-detection-sdk = { module = "com.github.EliorMauda:android-object-detection-sdk", version.ref = "androidObjectDetectionSdk" }
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
 annotation-v160 = { module = "androidx.annotation:annotation", version.ref = "annotationVersion" }
 appcompat-v161 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }

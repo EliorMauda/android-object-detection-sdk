@@ -73,4 +73,7 @@ dependencies {
     //Retrofit
     implementation libs.retrofit
     implementation libs.converter.gson
+
+    implementation libs.android.object1.detection.sdk
+
 }

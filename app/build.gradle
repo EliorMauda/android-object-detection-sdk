@@ -69,4 +69,6 @@ dependencies {
 
     // For handling permissions
     implementation libs.activity.v161
+
+    implementation libs.material.v1100
 }

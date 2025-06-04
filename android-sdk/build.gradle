@@ -74,19 +74,3 @@ dependencies {
     implementation libs.retrofit
     implementation libs.converter.gson
 }
-
-
-// A section for JitPack publishing
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-
-                groupId = 'com.github.EliorMauda'
-                artifactId = 'android-object-detection-sdk'
-                version = '0.1.0'
-            }
-        }
-    }
-}
